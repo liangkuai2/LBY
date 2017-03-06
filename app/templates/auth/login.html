@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.account.label }}{{ form.account() }}{% for error in form.account.errors %}{{ error }}{% endfor %}
+        {{ form.password.label }}{{ form.password() }}{% for error in form.password.errors %}{{ error }}{% endfor %}
+        {{ form.remember_me.label }}{{ form.remember_me() }}
+        {{ form.submit1() }}
+
+    </form>
+ <form action="" method="post">
+        {{ Jform.hidden_tag() }}
+        {{ Jform.role() }}
+        {{ Jform.student_id.label }}{{ Jform.student_id() }}
+        {{ Jform.password.label }}{{ Jform.password() }}
+        {{ Jform.submit2() }}
+
+    </form>
+{% for error in get_flashed_messages() %}
+{{ error}}
+{% endfor %}
+
+</body>
+</html>

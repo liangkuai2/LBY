@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.username.label }}{{ form.username() }}{% for error in form.username.errors %}{{ error }}{% endfor %}
+    {{ form.school.label }}{{ form.school() }}{% for error in form.school.errors %}{{ error }}{% endfor %}
+    {{ form.account.label }}{{ form.account() }}{% for error in form.account.errors %}{{ error }}{% endfor %}
+    {{ form.sex() }}{% for error in form.sex.errors %}{{ error }}{% endfor %}
+    {{ form.password.label }}{{ form.password() }}{% for error in form.password.errors %}{{ error }}{% endfor %}
+    {{ form.password2.label }}{{ form.password2() }}
+    {{ form.submit1() }}{% for error in form.submit1.errors %}{{ error }}{% endfor %}
+  {% with errors = get_flashed_messages(category_filter=["UserForm"]) %}
+    {% if errors %}
+    <div class="alert-message block-message error">
+    <a class="close" href="#">×</a>
+    <ul>
+    {%- for msg in errors %}
+    <li>{{ msg }}</li>
+    {% endfor -%}
+    </ul>
+    </div>
+{% endif %}
+{% endwith %}
+
+</form>
+
+<br><br>
+<form action="" method="post">
+    {{ teacher_form.hidden_tag() }}
+    {{ teacher_form.username.label }}{{ teacher_form.username() }}
+    {{ teacher_form.school.label }}{{ teacher_form.school() }}
+    {{ teacher_form.points.label }}{{ teacher_form.points() }}
+    {{ teacher_form.account.label }}{{ teacher_form.account() }}
+    {{ teacher_form.sex() }}
+    {{ teacher_form.password.label }}{{ teacher_form.password() }}
+    {{ teacher_form.password2.label }}{{ teacher_form.password2() }}<br>
+    {{ teacher_form.submit2() }}
+   {% with errors = get_flashed_messages(category_filter=["TeacherForm"]) %}
+    {% if errors %}
+    <div class="alert-message block-message error">
+    <a class="close" href="#">×</a>
+    <ul>
+    {%- for msg in errors %}
+    <li>{{ msg }}</li>
+    {% endfor -%}
+    </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+</form>
+</body>
+</html>
