@@ -30,29 +30,8 @@
 </form>
 
 <br><br>
-<form action="" method="post">
-    {{ teacher_form.hidden_tag() }}
-    {{ teacher_form.username.label }}{{ teacher_form.username() }}
-    {{ teacher_form.school.label }}{{ teacher_form.school() }}
-    {{ teacher_form.points.label }}{{ teacher_form.points() }}
-    {{ teacher_form.account.label }}{{ teacher_form.account() }}
-    {{ teacher_form.sex() }}
-    {{ teacher_form.password.label }}{{ teacher_form.password() }}
-    {{ teacher_form.password2.label }}{{ teacher_form.password2() }}<br>
-    {{ teacher_form.submit2() }}
-   {% with errors = get_flashed_messages(category_filter=["TeacherForm"]) %}
-    {% if errors %}
-    <div class="alert-message block-message error">
-    <a class="close" href="#">×</a>
-    <ul>
-    {%- for msg in errors %}
-    <li>{{ msg }}</li>
-    {% endfor -%}
-    </ul>
-    </div>
-    {% endif %}
-    {% endwith %}
 
-</form>
+
+
 </body>
 </html>
